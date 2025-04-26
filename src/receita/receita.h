@@ -2,10 +2,11 @@
 Biblioteca feita para manipular uma lista duplamente encadeada 
 de ingredientes, que juntos formam uma receita
 */
+
 #ifndef RECEITA_H
 #define RECEITA_H
 
-//struct do no de cada ingrediente na lista
+//struct dos valores dos ingredientes
 struct ingrediente{
     int codigo;
     char nomeIngrediente[50];
@@ -16,6 +17,7 @@ struct ingrediente{
 
 typedef struct ingrediente Ingrediente;
 
+// struct do No da lista
 struct noIngrediente{
     Ingrediente ingrediente;
     struct noIngrediente *proximo;
@@ -34,6 +36,8 @@ struct descritorReceita{
 typedef struct descritorReceita* Receita;
 
 Receita criaReceita(char nome[50]);
-void inserirIngrediente(Ingrediente ingrediente, Receita receita);
+int insereIngrediente(Ingrediente ingredienteRecebido, Receita receita);
+void mostraReceita(Receita receita);
+
 
 #endif
