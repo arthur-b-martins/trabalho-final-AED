@@ -108,7 +108,68 @@ int removeIngrediente(int id, Receita receita){
     return 0; 
 }
 
+int trocar(Receita receita, int cod1, int cod2){
+    if(!receita){
+        return -1;
+    }
 
+    if(receita->quantidadeIngredientes == 0 || receita->quantidadeIngredientes == 1){
+        return -2;
+    }
+
+    NoIngrediente no1 = receita->inicio;
+    NoIngrediente no2 = receita->inicio;
+
+    //enquanto nao encontramos ambos os ingredientes
+    while(no1->ingrediente.codigo != cod1 || no2->ingrediente.codigo != cod2){
+
+        // significa que percorremos a lista inteira e nao encontramos um dos 2
+        if(no1 == NULL || no2 == NULL){
+            return -3;
+        }
+
+        if(no1->ingrediente.codigo != cod1){
+            no1 = no1->proximo;
+        }
+
+        if(no2->ingrediente.codigo != cod2){
+            no2 = no2->proximo;
+        }
+    }
+
+    Ingrediente temp = no1->ingrediente;
+    no1->ingrediente = no2->ingrediente;
+    no2->ingrediente = temp;
+
+    no1->ingrediente.codigo = cod1;
+    no2->ingrediente.codigo = cod2;
+
+    return 0;
+}
+
+int substituir(Receita receita, int cod, Ingrediente ingrediente){
+    if(!receita){
+        return -1;
+    }
+
+    if(receita->quantidadeIngredientes == 0){
+        return -2;
+    }
+
+    NoIngrediente atual = receita->inicio;
+
+    while(atual->ingrediente.codigo != cod){
+        atual = atual->proximo;
+        if(!atual){
+            return -3;
+        }
+    }
+
+    atual->ingrediente = ingrediente;
+    atual->ingrediente.codigo = cod;
+
+    return 0;
+}
 
 void mostraReceita(Receita receita){
     if(!receita){
@@ -142,6 +203,50 @@ void mostraReceita(Receita receita){
             }
 
             noAtual = noAtual->proximo;
+        }
+    }
+
+    printf("\n\n==================================\n");
+}
+
+void mostraEssenciais(Receita receita){
+    if(!receita){
+        printf("\nErro! Você precisa criar a receita primeiro.");
+        return;
+    }
+
+    printf("\n==================================");
+    printf("\n      %s", receita->nomeReceita);
+    printf("\n==================================");
+
+    printf("\n\nIngredientes essenciais:\n");
+
+    if(receita->quantidadeIngredientes == 0){
+        printf("\nNão há ingredientes cadastrados.");
+    }
+
+    else{
+        NoIngrediente noAtual = receita->inicio;
+
+        int temEssencial = 0;
+        while(noAtual != NULL){
+            if(noAtual->ingrediente.essencial == 1){
+                printf("\n%d - %s - %d %s ", 
+                    noAtual->ingrediente.codigo,
+                    noAtual->ingrediente.nomeIngrediente,
+                    noAtual->ingrediente.quantidade,
+                    noAtual->ingrediente.medida
+                );
+                printf("*");
+
+                temEssencial = 1;
+            }
+
+            noAtual = noAtual->proximo;
+        }
+
+        if(temEssencial == 0){
+            printf("Não há ingredientes essenciais nesta receita!");
         }
     }
 

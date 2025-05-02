@@ -40,37 +40,17 @@ int main(){
     Receita r = criaReceita(nome);
 
     int deuCerto = insereIngrediente(i,r);
-    if(deuCerto == -1){
-        printf("erro");
-    }
-    
     deuCerto = insereIngrediente(j,r);
-    if(deuCerto == -1){
-        printf("erro");
-    }
-    
     deuCerto = insereIngrediente(k,r);
-    if(deuCerto == -1){
-        printf("erro");
-    }
-    
     deuCerto = insereIngrediente(l,r);
-    if(deuCerto == -1){
-        printf("erro");
-    }
-    
     deuCerto = insereIngrediente(m,r);
-    if(deuCerto == -1){
-        printf("erro");
-    }
-
 
     mostraReceita(r);
+    mostraEssenciais(r);
 
-    removeIngrediente(1,r);
-    removeIngrediente(3,r);
-
+    trocar(r,5,2);
 
     mostraReceita(r);
+    mostraEssenciais(r);
     return 0;
 }

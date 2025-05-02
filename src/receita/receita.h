@@ -40,6 +40,8 @@ Receita criaReceita(char nome[50]);
 int insereIngrediente(Ingrediente ingredienteRecebido, Receita receita);
 void mostraReceita(Receita receita);
 int removeIngrediente(int id, Receita receita);
-
+int trocar(Receita receita, int cod1, int cod2);
+void mostraEssenciais(Receita receita);
+int substituir(Receita receita, int cod, Ingrediente ingrediente);
 
 #endif
