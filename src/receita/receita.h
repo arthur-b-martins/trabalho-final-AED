@@ -31,12 +31,13 @@ struct descritorReceita{
     char nomeReceita[50];
     NoIngrediente inicio;
     NoIngrediente final;
+    int favorita; 
     int quantidadeIngredientes; 
 };
 
 typedef struct descritorReceita* Receita;
 
-Receita criaReceita(char nome[50]);
+Receita criaReceita(char nome[50], int favorita);
 int insereIngrediente(Ingrediente ingredienteRecebido, Receita receita);
 void mostraReceita(Receita receita);
 int removeIngrediente(int id, Receita receita);

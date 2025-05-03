@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <string.h>
 
-Receita criaReceita(char nome[50]){
+Receita criaReceita(char nome[50], int favorita){
     Receita receita = malloc(sizeof(struct descritorReceita));
     if(!receita){
         printf("\nErro na alocação de memória");
@@ -13,6 +13,7 @@ Receita criaReceita(char nome[50]){
     strcpy(receita->nomeReceita, nome);
     receita->inicio = NULL;
     receita->quantidadeIngredientes = 0;
+    receita->favorita = favorita;
 
     return receita;
 }
