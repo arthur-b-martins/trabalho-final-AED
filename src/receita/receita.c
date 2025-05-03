@@ -14,6 +14,7 @@ Receita criaReceita(char nome[50], int favorita){
     receita->inicio = NULL;
     receita->quantidadeIngredientes = 0;
     receita->favorita = favorita;
+    receita->proxima = NULL;
 
     return receita;
 }

@@ -31,6 +31,7 @@ struct descritorReceita{
     char nomeReceita[50];
     NoIngrediente inicio;
     NoIngrediente final;
+    struct descritorReceita* proxima;
     int favorita; 
     int quantidadeIngredientes; 
 };

@@ -1,4 +1,5 @@
 #include "receita/receita.h"
+#include "livroDeReceitas/livro.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -37,7 +38,13 @@ int main(){
     
     char nome[50];
     strcpy(nome, "Macarrao ao molho branco");
-    Receita r = criaReceita(nome);
+    Receita r = criaReceita(nome, 1);
+
+    strcpy(nome, "Carbonara");
+    Receita r2 = criaReceita(nome, 0);
+
+    strcpy(nome, "Lasanha de frango");
+    Receita r3 = criaReceita(nome, 0);
 
     int deuCerto = insereIngrediente(i,r);
     deuCerto = insereIngrediente(j,r);
@@ -46,11 +53,22 @@ int main(){
     deuCerto = insereIngrediente(m,r);
 
     mostraReceita(r);
-    mostraEssenciais(r);
 
-    trocar(r,5,2);
+    strcpy(nome,"Livro da Paola Caçarola");
+    Livro livro = criaLivro(nome);
+    insereReceita(livro, r);
+    insereReceita(livro, r2);
+    insereReceita(livro, r3);
 
-    mostraReceita(r);
-    mostraEssenciais(r);
+    mostraLivro(livro);
+    mostraFavoritas(livro);
+
+    Receita nova = recebeReceita(livro, 2);
+    mostraReceita(nova);
+
+    removeReceita(livro, 2);
+
+    mostraLivro(livro);
+    
     return 0;
 }
