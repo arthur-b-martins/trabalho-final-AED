@@ -175,6 +175,22 @@ int substituir(Receita receita, int cod, Ingrediente ingrediente){
     return 0;
 }
 
+void desalocaReceita(Receita receita) {
+    if (!receita) {
+        return;
+    }
+
+    NoIngrediente atual = receita->inicio;
+    while (atual != NULL) {
+        NoIngrediente temp = atual;
+        atual = atual->proximo;
+        free(temp);
+    }
+
+    free(receita);
+}
+
+
 //funcao apenas para centralizar o titulo 
 void printCentralizado(const char* texto) {
     int tamTexto = strlen(texto);

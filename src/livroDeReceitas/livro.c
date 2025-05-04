@@ -47,7 +47,7 @@ int removeReceita(Livro livro, int posicao){
     if(posicao == 1){
         Receita temp = livro->inicio;
         livro->inicio = temp->proxima;
-        free(temp); // ta errado, tem que dar free em todos os ingredientes da receita
+        desalocaReceita(temp);
         return 0;
     }
 
@@ -65,7 +65,7 @@ int removeReceita(Livro livro, int posicao){
     Receita temp = atual->proxima;
     atual->proxima = temp->proxima;
 
-    free(temp); // ta errado
+    desalocaReceita(temp);
     return 0;
 }
 

@@ -45,5 +45,6 @@ int removeIngrediente(int id, Receita receita);
 int trocar(Receita receita, int cod1, int cod2);
 void mostraEssenciais(Receita receita);
 int substituir(Receita receita, int cod, Ingrediente ingrediente);
+void desalocaReceita(Receita receita);
 
 #endif
