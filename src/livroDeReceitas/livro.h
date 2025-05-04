@@ -1,3 +1,7 @@
+/* Biblioteca feita para manipular uma lista simplesmente
+encadeada de nós descritores de receitas, que juntos formam
+um Livro De Receitas */
+
 #ifndef LIVRODERECEITAS_H
 #define LIVRODERECEITAS_H
 

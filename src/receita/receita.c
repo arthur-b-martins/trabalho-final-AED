@@ -6,8 +6,7 @@
 Receita criaReceita(char nome[50], int favorita){
     Receita receita = malloc(sizeof(struct descritorReceita));
     if(!receita){
-        printf("\nErro na alocação de memória");
-        exit(1);
+        return receita;
     }
 
     strcpy(receita->nomeReceita, nome);
@@ -26,8 +25,7 @@ int insereIngrediente(Ingrediente ingredienteRecebido, Receita receita){
 
     NoIngrediente no = malloc(sizeof(struct noIngrediente));
     if(!no){
-        printf("\nErro na alocação de memória");
-        exit(1);
+        return -2;
     }
 
     no->ingrediente = ingredienteRecebido;
@@ -119,6 +117,10 @@ int trocar(Receita receita, int cod1, int cod2){
         return -2;
     }
 
+    if(cod1 < 1 || cod1 > receita->quantidadeIngredientes || cod2 < 1 || cod2 > receita->quantidadeIngredientes){
+        return -3;
+    }
+
     NoIngrediente no1 = receita->inicio;
     NoIngrediente no2 = receita->inicio;
 
@@ -127,7 +129,7 @@ int trocar(Receita receita, int cod1, int cod2){
 
         // significa que percorremos a lista inteira e nao encontramos um dos 2
         if(no1 == NULL || no2 == NULL){
-            return -3;
+            return -4;
         }
 
         if(no1->ingrediente.codigo != cod1){
@@ -173,15 +175,28 @@ int substituir(Receita receita, int cod, Ingrediente ingrediente){
     return 0;
 }
 
+//funcao apenas para centralizar o titulo 
+void printCentralizado(const char* texto) {
+    int tamTexto = strlen(texto);
+    int espacos = (34 - tamTexto) / 2;
+
+    // Imprime espaços antes do texto
+    for (int i = 0; i < espacos; i++) {
+        printf(" ");
+    }
+
+    printf("%s\n", texto);
+}
+
 void mostraReceita(Receita receita){
     if(!receita){
         printf("\nErro! Você precisa criar a receita primeiro.");
         return;
     }
 
-    printf("\n==================================");
-    printf("\n      %s", receita->nomeReceita);
-    printf("\n==================================");
+    printf("\n==================================\n");
+    printCentralizado(receita->nomeReceita);
+    printf("==================================");
 
     printf("\n\nIngredientes:\n");
 
@@ -217,9 +232,9 @@ void mostraEssenciais(Receita receita){
         return;
     }
 
-    printf("\n==================================");
-    printf("\n      %s", receita->nomeReceita);
-    printf("\n==================================");
+    printf("\n==================================\n");
+    printCentralizado(receita->nomeReceita);
+    printf("==================================");
 
     printf("\n\nIngredientes essenciais:\n");
 
