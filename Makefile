@@ -30,6 +30,7 @@ clean:
 	del /Q $(BUILD_DIR)\*.exe 2>nul || exit 0
 
 # Regra para rodar o programa no Windows (CMD)
-run: $(TARGET)
+run:
+	if not exist $(TARGET) $(MAKE) all
 	chcp 65001 >nul
 	$(TARGET)
