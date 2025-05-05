@@ -21,7 +21,7 @@ O tema escolhido foi **\"Livro de Receitas\"**, onde foi desenvolvida uma estrut
 ## 📁 Estrutura do Projeto
 
 ### \src – Códigos-fonte  
-Contém os arquivos principais da aplicação, organizados da seguinte forma:
+Contém os códigos-fonte do programa, organizados da seguinte forma:
 
 - \main.c – Arquivo principal.  
 - **Pastas de bibliotecas**:
