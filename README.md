@@ -70,7 +70,7 @@ mingw32-make
 > Pré-requisitos:  
 > - Ter o **MinGW** instalado (com **gcc** e **make** disponíveis no terminal).
 
-Importante: Recomendado pois comando abaixo ajusta o terminal para utilizar **UTF-8**, evitando problemas com acentuação e caracteres especiais.
+Importante: Recomendado pois o comando abaixo ajusta o terminal para utilizar **UTF-8**, evitando problemas com acentuação e caracteres especiais.
 
 1. Clone este repositório  
 2. Abra o Prompt de Comando (CMD)  
