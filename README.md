@@ -1,71 +1,90 @@
-# Trabalho final de AED1
 
-Repositório do trabalho final da matéria de algritmos e estruturas de dados,
-foi escolhido o tema "Livro de Receitas", onde se deve manipular uma lista 
-simplesmente encadeadas de receitas (livro de receitas), sendo cada receita
-uma lista duplamente encadeada de ingredientes.
+# 📘 Trabalho Final de AED1 – Livro de Receitas
 
-Alunos:
-- Arthur Martins
-- Gustavo Luis
+Repositório do trabalho final da disciplina **Algoritmos e Estruturas de Dados I (AED1)**.
+
+O tema escolhido foi **\"Livro de Receitas\"**, onde foi desenvolvida uma estrutura composta por:
+
+- Uma **lista simplesmente encadeada** representando o *livro de receitas*.
+- Cada receita no livro é, por sua vez, uma **lista duplamente encadeada de ingredientes**.
+
+---
+
+## 👨‍🏫 Alunos
+
+- Arthur Martins  
+- Gustavo Luis  
 - Estevão  
 
-# Estrutura
+---
 
-##   Src
-  
-  A pasta contém os códigos fonte do programa, na seguinte organização: 
-  
-  arquivo principal *main.c*,
-  
-  bibliotecas subdivididas em pastas:
-   
-   - receita - para manipulação de uma receita (lista de ingredientes)
-      *receita.h*
-      *receita.c*
-   - livroDeReceitas - para manipulação do livro (lista de receitas)
-      *livro.h*
-      *livro.c*
-   - dados - para cadastrar dados (hardcoded) simulando persistência
-      *dados.h*
-      *dados.c*
+## 📁 Estrutura do Projeto
 
-## Build
+### \src – Códigos-fonte  
+Contém os arquivos principais da aplicação, organizados da seguinte forma:
 
-  A pasta contém o arquivo executável *programa.exe*
+- \main.c – Arquivo principal.  
+- **Pastas de bibliotecas**:
+  - \receita – Manipulação de uma receita (lista de ingredientes)  
+    - \receita.h  
+    - \receita.c
+  - \livroDeReceitas – Manipulação do livro (lista de receitas)  
+    - \livro.h  
+    - \livro.c
+  - \dados – Dados fixos (*hardcoded*) simulando persistência  
+    - \dados.h  
+    - \dados.c
 
-## Doc
+---
 
-  A pasta contém o relatório em pdf
+### \build – Executável
 
-# Como compilar
+Contém o arquivo **\programa.exe** , gerado após a compilação.
 
-Windows
+---
 
-1 - Clone o repositório
-2 - Abra o Cmd
-3 - Navegue até o diretório do projeto
-4 - Dê o comando ``` mingw32-make ```
+### \doc – Relatório
 
-Dependencias 
- - mingw (gcc, makefile)
+Contém o relatório final do projeto em formato PDF.
 
-# Como rodar 
+---
 
-Windows
+## ⚙️ Como compilar (Windows)
 
-1 - Clone o repositório
-2 - Abra o Cmd
-3 - Navegue até o diretório do projeto
-4 - Dê o comando ``` mingw32-make run ```
+> Pré-requisitos:  
+> - Ter o **MinGW** instalado (com **gcc** e **make** disponíveis no terminal).
 
-Antes de rodar o executável, o comando irá setar o terminal
-para usar UTF-8 e não ter problemas com caracteres,
-portanto é recomendável que se execute o comando a cima, 
-ao invés de apenas abrir o programa diretamente.
+1. Clone este repositório  
+2. Abra o Prompt de Comando (CMD)  
+3. Navegue até o diretório raiz do projeto  
+4. Execute o comando:
 
-Dependencias 
- - mingw (gcc, makefile)
+``` 
+mingw32-make
+```
 
-      
-  
+---
+
+## ▶️ Como rodar o programa (Windows)
+
+> Pré-requisitos:  
+> - Ter o **MinGW** instalado (com **gcc** e **make** disponíveis no terminal).
+
+Importante: Recomendado pois comando abaixo ajusta o terminal para utilizar **UTF-8**, evitando problemas com acentuação e caracteres especiais.
+
+1. Clone este repositório  
+2. Abra o Prompt de Comando (CMD)  
+3. Navegue até o diretório raiz do projeto  
+4. Execute o comando:
+
+```
+mingw32-make run
+```
+
+---
+
+## 🛠️ Dependências
+
+- [MinGW](http://www.mingw.org/) (GCC + Make)
+
+---
